@@ -1,8 +1,10 @@
 use crate::screen::{
-    read::*
+    read::*,
+    basic_operations::clear_screen
 };
 pub fn menu () {
     loop {
+        clear_screen();
         println!("\
         ========== Menu ========== \n\
         Escolha uma das opções abaixo:\n\n\
