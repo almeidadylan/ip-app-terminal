@@ -1,6 +1,6 @@
 use std::io;
 
-fn read_string_data () -> String {
+pub fn read_string_data () -> String {
     let mut data = String::new();
     io::stdin().read_line(&mut data).expect("Falha ao ler dados");
     data.trim().to_string()
