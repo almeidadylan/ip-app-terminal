@@ -1,6 +1,6 @@
 use crate::screen::{
     read::*,
-    basic_operations::clear_screen,
+    basic_operations::*,
     ip::*
 };
 pub fn menu () {
@@ -9,10 +9,11 @@ pub fn menu () {
         println!("\
         ========== Menu ========== \n\
         Escolha uma das opções abaixo:\n\n\
-            1 - Descobrir o meu IP local\n\
-            2 - Lista os IPs da rede 2\n\
-            3 - Opção 3\n\
+            1 - Descobrir o meu IP local e publico\n\
+            2 - Descobrir meu ip\n\
+            3 - Lista os IPs da rede 2\n\
             4 - Opção 4\n\
+            5 - Opção 5\n\
             0 - Sair do Programa\n\
         ");
 
@@ -20,7 +21,7 @@ pub fn menu () {
 
         match input {
             0 => return,
-            1 => get_my_local_ip(),
+            1 => { get_my_local_ip(); get_my_public_ip(); wait(3); }, 
             2 => println!("Você escolheu a opção 2"),
             3 => println!("Você escolheu a opção 3"),
             4 => println!("Você escolheu a opção 4"),

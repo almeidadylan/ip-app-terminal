@@ -6,4 +6,8 @@ edition = "2024"
 [dependencies]
 clearscreen = "4.0.2"
 local-ip-address = "0.6.5"
+reqwest = { version = "0.12", features = ["json"] }
+serde_json = "1.0.145"
+tokio = { version = "1", features = ["full"] }
+#serde_json = { version = "1.0", features = ["derive"] }
 #pnet = "0.35.0"
