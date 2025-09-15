@@ -14,27 +14,24 @@ pub fn get_my_local_ip() {
     let local_addr = socket.local_addr().unwrap();
     println!("Seu ip local é: {}", local_addr.ip());
 
-    println!();
-    println!("Pressione qualquer tecla para continuar...");
+    println!("\nPressione qualquer tecla para continuar...");
     let _input = read_string_data();
 }
 
 
 #[tokio::main] 
-pub async fn get_my_public_ip () -> Result<String, reqwest::Error> {
+pub async fn get_my_public_ip () {
     clear_screen();
 
     // Faz a requisição ao serviço ipify
     let response = reqwest::get("https://api.ipify.org")
-        .await?
-        .text()
-        .await?;
+        .await;
 
-    println!("Seu ip público é: {} ", response);
-    
-    println!();
-    println!("Pressione qualquer tecla para continuar...");
+    match response {
+        Ok(ip) => println!("Seu ip público é: {}", ip.text().await.unwrap()),
+        Err(e) => println!("Erro na requisição: {}", e),
+    }
+
+    println!("\nPressione qualquer tecla para continuar...");
     let _input = read_string_data();
-
-    Ok(response)
 }

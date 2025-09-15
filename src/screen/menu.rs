@@ -21,8 +21,8 @@ pub fn menu () {
 
         match input {
             0 => return,
-            1 => { get_my_local_ip(); }, 
-            2 => { get_my_public_ip(); },
+            1 => get_my_local_ip(), 
+            2 => get_my_public_ip(),
             3 => println!("Você escolheu a opção 3"),
             4 => println!("Você escolheu a opção 4"),
             5 => println!("Você escolheu a opção 5"),
