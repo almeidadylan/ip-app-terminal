@@ -14,7 +14,7 @@ pub fn show_general_ip_info(){
 }
 
 
-pub fn get_my_local_ip() {
+pub fn show_my_local_ip() {
     clear_screen();
 
     let socket = UdpSocket::bind("0.0.0.0:0").unwrap();
@@ -29,7 +29,7 @@ pub fn get_my_local_ip() {
 
 
 #[tokio::main] 
-pub async fn get_my_public_ip () {
+pub async fn show_my_public_ip () {
     clear_screen();
 
     // Faz a requisição ao serviço ipify

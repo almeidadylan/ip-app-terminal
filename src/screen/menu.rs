@@ -1,7 +1,9 @@
 use crate::screen::{
     read::*,
     basic_operations::*,
-    ip::*
+    ip_functions::{
+        show_informations::*,
+    }
 };
 pub fn menu () {
     loop {
@@ -23,8 +25,8 @@ pub fn menu () {
         match input {
             0 => return,
             1 => show_general_ip_info(),
-            2 => get_my_local_ip(), 
-            3 => get_my_public_ip(),
+            2 => show_my_local_ip(), 
+            3 => show_my_public_ip(),
             4 => println!("Você escolheu a opção 3"),
             5 => println!("Você escolheu a opção 4"),
             6 => println!("Você escolheu a opção 5"),
