@@ -9,11 +9,12 @@ pub fn menu () {
         println!("\
         ========== Menu ========== \n\
         Escolha uma das opções abaixo:\n\n\
-            1 - Descobrir o meu IP Local\n\
-            2 - Descobrir meu IP Público\n\
-            3 - Lista os IPs da rede 2\n\
-            4 - Opção 4\n\
-            5 - Opção 5\n\
+            1 - Mostrar informações sobre meu ip \n
+            2 - Descobrir o meu IP Local\n\
+            3 - Descobrir meu IP Público\n\
+            4 - Lista os IPs da rede 2\n\
+            5 - Opção 4\n\
+            6 - Opção 5\n\
             0 - Sair do Programa\n\
         ");
 
@@ -21,11 +22,12 @@ pub fn menu () {
 
         match input {
             0 => return,
-            1 => get_my_local_ip(), 
-            2 => get_my_public_ip(),
-            3 => println!("Você escolheu a opção 3"),
-            4 => println!("Você escolheu a opção 4"),
-            5 => println!("Você escolheu a opção 5"),
+            1 => show_general_ip_info(),
+            2 => get_my_local_ip(), 
+            3 => get_my_public_ip(),
+            4 => println!("Você escolheu a opção 3"),
+            5 => println!("Você escolheu a opção 4"),
+            6 => println!("Você escolheu a opção 5"),
             _ => println!("Você escolheu a opção _"),
         }
     }
