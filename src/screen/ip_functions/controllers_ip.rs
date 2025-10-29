@@ -12,7 +12,6 @@ pub fn get_my_local_ip() -> Result<IpAddr, reqwest::Error>{
 }
 
 
-#[tokio::main] 
 pub async fn get_my_public_ip () -> Result<String, reqwest::Error> {
 
     let response_ipv4 = reqwest::get("https://api.ipify.org").await?;

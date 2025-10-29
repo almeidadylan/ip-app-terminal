@@ -5,13 +5,15 @@ use crate::screen::{
         show_informations::*,
     }
 };
-pub fn menu () {
+
+#[tokio::main] 
+pub async fn menu () {
     loop {
         clear_screen();
         println!("\
         ========== Menu ========== \n\
         Escolha uma das opções abaixo:\n\n\
-            1 - Mostrar informações sobre meu ip \n
+            1 - Mostrar informações sobre meu ip \n\
             2 - Descobrir o meu IP Local\n\
             3 - Descobrir meu IP Público\n\
             4 - Lista os IPs da rede 2\n\
@@ -26,7 +28,7 @@ pub fn menu () {
             0 => return,
             1 => show_general_ip_info(),
             2 => show_my_local_ip(), 
-            3 => show_my_public_ip(),
+            3 => show_my_public_ip().await,
             4 => println!("Você escolheu a opção 3"),
             5 => println!("Você escolheu a opção 4"),
             6 => println!("Você escolheu a opção 5"),

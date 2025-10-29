@@ -1,7 +1,7 @@
 use std::net::UdpSocket;
-use reqwest;
 
 use crate::screen::basic_operations::*;
+use crate::screen::ip_functions::controllers_ip::get_my_public_ip;
 use crate::screen::read::*;
 
 pub fn show_general_ip_info(){
@@ -28,25 +28,15 @@ pub fn show_my_local_ip() {
 }
 
 
-#[tokio::main] 
 pub async fn show_my_public_ip () {
     clear_screen();
 
-    // Faz a requisição ao serviço ipify
-    let response_ipv4 = reqwest::get("https://api.ipify.org").await;
-    //let response_ipv6 = reqwest::get("https://api6.ipify.org").await;
+    let my_ip = get_my_public_ip().await;
  
-    match response_ipv4 {
-        Ok(ipv4) => println!("Seu ip público IPv4 é: {}", ipv4.text().await.unwrap()),
+    match my_ip {
+        Ok(ipv4) => println!("Seu ip IPv4 público é: {:?}", ipv4),
         Err(e) => println!("Erro na requisição IPv4: {}", e),
     }
-
-    /*  
-    match response_ipv6 {
-        Ok(ipv6) => println!("Seu ip público IPv6 é: {:?}", ipv6),
-        Err(_) => println!("IPv6 público: não disponível nesta conexão."),
-    }
-    */
 
     println!("\nPressione qualquer tecla para continuar...");
     let _input = read_string_data();
