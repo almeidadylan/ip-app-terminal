@@ -1,21 +1,14 @@
+use std::net::IpAddr;
 use std::net::UdpSocket;
 use reqwest;
 
-use crate::screen::basic_operations::*;
-use crate::screen::read::*;
 
-
-pub fn get_my_local_ip() {
-    clear_screen();
-
+pub fn get_my_local_ip() -> Result<IpAddr, reqwest::Error>{
     let socket = UdpSocket::bind("0.0.0.0:0").unwrap();
     socket.connect("8.8.8.8:80").unwrap(); // conecta a um servidor externo (Google DNS)
 
     let local_addr = socket.local_addr().unwrap();
-    println!("Seu ip local é: {}", local_addr.ip());
-
-    println!("\nPressione qualquer tecla para continuar...");
-    let _input = read_string_data();
+    Ok(local_addr.ip())
 }
 
 
