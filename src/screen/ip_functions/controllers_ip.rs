@@ -3,7 +3,7 @@ use std::net::UdpSocket;
 use reqwest;
 
 
-pub fn get_my_local_ip() -> Result<IpAddr, reqwest::Error>{
+pub fn get_my_local_ipv4() -> Result<IpAddr, reqwest::Error>{
     let socket = UdpSocket::bind("0.0.0.0:0").unwrap();
     socket.connect("8.8.8.8:80").unwrap(); // conecta a um servidor externo (Google DNS)
 
@@ -12,7 +12,7 @@ pub fn get_my_local_ip() -> Result<IpAddr, reqwest::Error>{
 }
 
 
-pub async fn get_my_public_ip () -> Result<String, reqwest::Error> {
+pub async fn get_my_public_ipv4 () -> Result<String, reqwest::Error> {
 
     let response_ipv4 = reqwest::get("https://api.ipify.org").await?;
     let return_ipv4 = response_ipv4.text().await?;
