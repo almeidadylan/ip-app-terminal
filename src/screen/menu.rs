@@ -26,7 +26,7 @@ pub async fn menu () {
 
         match input {
             0 => return,
-            1 => show_general_ip_info(),
+            1 => show_general_ip_info().await,
             2 => show_my_local_ipv4(), 
             3 => show_my_public_ipv4().await,
             4 => println!("Você escolheu a opção 3"),
